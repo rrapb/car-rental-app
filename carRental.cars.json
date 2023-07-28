@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "64c2d2aba1aac68b7cf51e92"
+  },
+  "name": "Golf mk8",
+  "price_per_day": 50,
+  "year": 2015,
+  "color": "black",
+  "steering_type": "automatic",
+  "number_of_seats": 5
+},
+{
+  "_id": {
+    "$oid": "64c2d49fa1aac68b7cf51e93"
+  },
+  "name": "Golf mk7",
+  "price_per_day": 40,
+  "year": 2012,
+  "color": "blue",
+  "steering_type": "manual",
+  "number_of_seats": 5
+},
+{
+  "_id": {
+    "$oid": "64c2d4f4a1aac68b7cf51e94"
+  },
+  "name": "Suzuki",
+  "price_per_day": 20,
+  "year": 2018,
+  "color": "blue",
+  "steering_type": "manual",
+  "number_of_seats": 4
+}]

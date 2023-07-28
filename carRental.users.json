@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "64c2cc624461f71e8540f974"
+  },
+  "fullName": "Behamics US",
+  "email": "test@test.com",
+  "username": "behamicsTest",
+  "password": "$2b$10$k2FqLcds1QLYED5nydg5huDs8FO0LoKn49BtYy8dnTV4xPbhhRo/q"
+},
+{
+  "_id": {
+    "$oid": "64c3d35ea5f40607f73b7b1a"
+  },
+  "fullName": "Behamics US",
+  "email": "behamics@test.com",
+  "username": "behamicsUS",
+  "password": "$2b$10$fwGtDd.NPLfgS3JnRn9q8.28oYfzAPdErLc7Yl2ZWtmY94CkvkTdq"
+}]

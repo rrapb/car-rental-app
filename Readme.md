@@ -15,6 +15,13 @@ Clone the repository:
 git clone https://github.com/your-username/car-rental-app.git
 cd car-rental-app
 
+Install dependencies:
+npm install
+
+Set up the MongoDB database:
+Make sure you have MongoDB installed on your system. Create a MongoDB database called carRental for the application.
+Included in git repository are also carRentalt.cars.json and carRental.users.json files that can be imported to carRental database.
+
 Start the application:
 node rent
 The server will run on http://localhost:3000.
@@ -23,6 +30,7 @@ The server will run on http://localhost:3000.
 Testing the Application
 
 ```
+Included in git repository is also Behamics.postman_collection.json file that can be imported in postman to test the app.
 The application exposes the following endpoints: 
 
 (Examples)
