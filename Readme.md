@@ -1,5 +1,5 @@
 ## Car Rental Application
-This repository contains a simple Car Rental application built with Node.js, Express.js, and MongoDB. The application provides basic functionalities for user registration, user login, accessing user profile, and querying rental cars based on various parameters.
+This repository contains a simple Car Rental application built with Node.js, Express.js, and MongoDB. The application provides basic functionalities for user registration, user login, accessing user profile, and querying rental cars based on various parameters. The application uses validation with Joi to ensure that incoming data follows specific requirements.
 	
 ## Prerequisites
 To run this application, you need to have the following installed on your system:

@@ -1,3 +1,4 @@
+const Joi = require ('joi');
 const express = require('express');
 const { MongoClient} = require('mongodb');
 const jwt = require('jsonwebtoken');
@@ -43,17 +44,45 @@ const authenticateJWT = (req, res, next) => {
     
 };
 
+const registerSchema = Joi.object({
+    fullName: Joi.string().min(3).required(),
+    email: Joi.string().email().required(),
+    username: Joi.string().alphanum().min(3).max(10).required(),
+    password: Joi.string().required()
+});
+
+const loginSchema = Joi.object({
+    username: Joi.string().alphanum().min(3).max(10).required(),
+    password: Joi.string().required()
+});
+
+
+
 app.post('/register', async(req, res) => {
 
     if (!db) {
         return res.status(503).send('Service Unavailable. Try again later.');
-      }
+    }
+    
+    const { error } = registerSchema.validate(req.body);
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    }
 
     try {
-        const { fullName, email, username, password} = req.body;
+        const { fullName, email, username, password } = req.body;
+
+        const existingUser = await db.collection('users').findOne({
+            $or: [{ username: username }, { email: email }],
+        });
+
+        if (existingUser) {
+            return res.status(409).send('User already exists.');
+        }
+        
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = { fullName, email, username, password: hashedPassword};
-        const result = await db.collection('users').insertOne(newUser);
+        await db.collection('users').insertOne(newUser);
         res.status(201).send('User added successfully');
     } catch (err) {
         console.error(err);
@@ -62,6 +91,12 @@ app.post('/register', async(req, res) => {
 });
 
 app.post('/login', async(req, res) => {
+
+    const { error } = loginSchema.validate(req.body)
+    if (error) {
+        return res.status(400).send(error.details[0].message)
+    }
+
     try{
         const { username, password } = req.body;
         const user = await db.collection('users').findOne({ username });
